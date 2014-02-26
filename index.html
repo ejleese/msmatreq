@@ -1,0 +1,47 @@
+<html>
+<title>Machine Shop Material Request System</title>
+<head>
+<link rel="stylesheet" type="text/css" href="include/style.css">
+<script src='scripts/msreq.js'></script>
+<script src='/script/jquery-1.10.2.min.js'></script>
+
+</head>
+<body background="/images/mine33.jpg" onLoad="self.focus();inputForm.clk.focus()">
+<center>
+
+<div id="container" style="width:500px">
+
+<div id="header">
+<h1>Machine Shop Material Requests</h1>
+<h3><i>Please enter information accurately so we can help you as quickly as possible!</i></h3>
+<hr>
+</div>
+
+<form id="inputForm">
+
+<div id="dclk">
+<b>Clock #: </b><input type="number" size="4" maxlength="4" id="clk" style="width:44px" onblur="getClockno();">&nbsp;&nbsp;
+			<input type="text" readonly="readonly" disabled=true id="name" style="width:125px; border=none"></div>
+<br>
+<div id="dtrav" style="width:100px;float:left">
+<b>Traveler #:</b><br><input type="text" id="trav" style="width:90px"></div>
+<div id="djob" style="width:100px;float:left">
+<b>Job #:</b><br><input type="number" id="job" style="width:90px"></div>
+<div id="dpart" style="width:150px;float:left">
+<b>Part #:</b><br><input type="text" id="part" style="width:140px"></div>
+<div id="dqty" style="width:50px;float:left">
+<b>Qty:</b><br><input type="number" id="qty" style="width:40px"></div>
+<div id="dfill" style="width:100px;float:left">
+<b>Fill Only?</b><br><input type="checkbox" id="fill"></div>	
+<br><br><br>
+<div id="ddesc">
+<b>Description of request:</b><br><textarea id="desc" style="width:415px; height:145px"></textarea></div>
+<hr>
+<div id="dbuttons">
+<input type=button value="Submit Request" onclick="verify();">
+<input type="reset" value="oops! - clear form" onclick="inputForm.clk.focus();">
+</div>
+</form>
+</div><! end of container div>
+</body>
+</html>
