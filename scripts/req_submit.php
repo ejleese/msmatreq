@@ -32,7 +32,7 @@ system("echo \"$QS\" > $PARAMFILE");
 
 system("/appl/fp/dreport msmatreq -fp addReq -sr 1 -u -r \"$TMPFILE\" -rw \"$PARAMFILE\" >> /dev/null");
 system("cat $TMPFILE");
-system("rm -f $TMPFILE");
+//system("rm -f $TMPFILE");
 system("rm -f $PARAMFILE");
 
 // TODO: Can I do this directly on QUERY_STRING ?

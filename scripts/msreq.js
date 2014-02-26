@@ -30,6 +30,8 @@ function getClockno()
 		}
 	}
 
+	if (document.getElementById("clk").value == "") return;
+
 	var nocache=new Date().getTime();
 	xmlhttp.open("GET","/msmatreq/scripts/getName.php?clk="+escape(document.getElementById("clk").value)+"&nocache="+nocache,true);
 	xmlhttp.send();
@@ -65,17 +67,14 @@ function verify()
 // submit req		
 function req_submit()
 {
+	document.getElementById('submitbtn').disabled=true; //hide submit button to avoid doubleclick as it fades out
+
 	xmlhttp=getHTTPObject();
 
 	xmlhttp.onreadystatechange=function()
 	{
 		if (xmlhttp.readyState==4 && xmlhttp.status==200)
 		{
-/*
-			//$("#container").hide();
-			$("#inputForm").hide();
-			$("#container").text(xmlhttp.responseText);
-*/
 			showResults(xmlhttp.responseText);
 		}
 	}
@@ -108,8 +107,14 @@ function showResults(val)
 	//$("#container").hide();
 	$("#header").fadeOut(2000);
 	$("#inputForm").fadeOut(2000,function()
-	{
-		$("#container").html("<br><br>" + xmlhttp.responseText + 
-				"<br><br><a href='/msmatreq/'>Return to Entry Form</a>");
+	{	
+		var resptext = xmlhttp.responseText;
+		if (resptext.indexOf("ERROR:") == -1) //no fp-generated error in response
+		{
+			resptext="Machine Shop Material Request # <b>"+ resptext + "</b> has been submitted!";
+		}
+	
+		$("#container").html("<br><br>" + resptext + 
+				"<br><br><a href='/msmatreq/'>Return to Material Request Entry Form</a>");
 	});
 } 

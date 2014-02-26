@@ -12,8 +12,7 @@
 $CLK= sanitize($_GET["clk"]);
 $PID=getmypid();
 
-// when dedicated filePro file exists for these reqs, move getClockEJL there and rename to getClock
-system("/appl/fp/dreport cgi -fp getClockEJL -u -sr 1 -r $PID -rx $CLK >> /dev/null");
+system("/appl/fp/dreport msmatreq -fp getClock -u -sr 1 -r $PID -rx $CLK >> /dev/null");
 system("cat /appl/fpmerge/$PID.getClock.pout");
 system("rm -f /appl/fpmerge/$PID.getClock.pout");
 
