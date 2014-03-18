@@ -55,8 +55,8 @@ function verify()
 	//alert if fields are empty and cancel form submit
 	if (themessage == "You are required to complete the following fields:\n") 
 	{
-		//req_submit();
-		document.getElementById("inputForm").submit();
+		req_submit();
+		//document.getElementById("inputForm").submit();
 	}
 	else 
 	{
@@ -90,8 +90,12 @@ function req_submit()
 	vars=vars+"&desc="+sanitize(inputForm.desc.value);
 	vars=vars+"&nocache="+nocache;
 
-	xmlhttp.open("GET","/msmatreq/scripts/req_submit.php?"+vars,false);
-	xmlhttp.send();
+	//xmlhttp.open("GET","/msmatreq/scripts/req_submit.php?"+vars,false);
+	xmlhttp.open("POST","/msmatreq/scripts/req_submit.php",false);
+	xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+	xmlhttp.setRequestHeader("Content-length",vars.length);
+	xmlhttp.setRequestHeader("Connnection","close");
+	xmlhttp.send(vars);
 }
 
 // TODO: (is it necessary to do this if i'm also sanitizing in the php?)
@@ -118,4 +122,5 @@ function showResults(val)
 		$("#container").html("<br><br>" + resptext + 
 				"<br><br><a href='/msmatreq/'>Return to Material Request Entry Form</a>");
 	});
-} 
+}
+ 

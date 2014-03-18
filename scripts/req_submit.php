@@ -26,7 +26,11 @@ $query_string=join("&",$qs);
 file_put_contents($PARAMFILE,$query_string);
 
 system("/appl/fp/dreport msmatreq -fp addReq -sr 1 -u -r \"$TMPFILE\" -rw \"$PARAMFILE\" >> /dev/null");
+
 system("cat $TMPFILE");
+
+//$reqnum=file_get_contents($TMPFILE);
+
 system("rm -f $TMPFILE");
 system("rm -f $PARAMFILE");
 
