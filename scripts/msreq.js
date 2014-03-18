@@ -55,7 +55,8 @@ function verify()
 	//alert if fields are empty and cancel form submit
 	if (themessage == "You are required to complete the following fields:\n") 
 	{
-		req_submit();
+		//req_submit();
+		document.getElementById("inputForm").submit();
 	}
 	else 
 	{

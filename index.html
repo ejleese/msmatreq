@@ -16,25 +16,25 @@
 <hr>
 </div>
 
-<form id="inputForm">
+<form id="inputForm" action='/msmatreq/scripts/req_submit.php' method='post'>
 
 <div id="dclk" style="float:left">
-<b>Clock #: </b><input type="number" size="4" maxlength="4" id="clk" style="width:44px" onblur="getClockno();">&nbsp;&nbsp;
-			<input type="text" readonly="readonly" disabled=true id="name" style="width:125px; border=none"></div>
+<b>Clock #: </b><input type="number" size="4" maxlength="4" id="clk" name="clk" style="width:44px" onblur="getClockno();">&nbsp;&nbsp;
+			<input type="text" readonly="readonly" disabled=true id="name" name="name" style="width:125px; border=none"></div>
 <br><br>
 <div id="dtrav" style="width:100px;float:left">
-<b>Traveler #:</b><br><input type="text" id="trav" style="width:90px"></div>
+<b>Traveler #:</b><br><input type="text" id="trav" name="trav" style="width:90px"></div>
 <div id="djob" style="width:100px;float:left">
-<b>Job #:</b><br><input type="number" id="job" style="width:90px"></div>
+<b>Job #:</b><br><input type="number" id="job" name="job" style="width:90px"></div>
 <div id="dpart" style="width:150px;float:left">
-<b>Part #:</b><br><input type="text" id="part" style="width:140px"></div>
+<b>Part #:</b><br><input type="text" id="part" name="part" style="width:140px"></div>
 <div id="dqty" style="width:50px;float:left">
-<b>Qty:</b><br><input type="number" id="qty" style="width:40px"></div>
+<b>Qty:</b><br><input type="number" id="qty" name="qty" style="width:40px"></div>
 <div id="dfill" style="width:100px;float:left">
-<b>Fill Only?</b><br><input type="checkbox" id="fill"></div>	
+<b>Fill Only?</b><br><input type="checkbox" id="fill" name="fill"></div>	
 <br><br><br>
 <div id="ddesc" style="width:415px; float:left">
-<b>Description of request:</b><br><textarea id="desc" style="width:415px; height:145px;float:left"></textarea></div>
+<b>Description of request:</b><br><textarea id="desc" name="desc" style="width:415px; height:145px;float:left"></textarea></div>
 </center>
 <div id="hints" style="width:385px;float:left; clear:right">
 <ul style="list-style-type:square; line-height:150%">
